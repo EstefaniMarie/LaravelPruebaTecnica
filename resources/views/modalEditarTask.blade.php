@@ -1,7 +1,4 @@
 <!-- Modal para editar una tarea si eres usuario con rol = 1 -->
-
-
-
 <div class="modal fade" id="editarTareaModal{{ $tarea->id }}" tabindex="-1"
     aria-labelledby="editarUsuarioModal{{ $tarea->id }}" aria-hidden="true">
     <div class="modal-dialog modal-md">
@@ -19,21 +16,23 @@
                     <div class="row">
                         <div class="col-12">
                             <fieldset class="name form-group">
-                                <label for="name" style="color:black;">Título</label>
-                                <input type="text" class="form-control" id="title" name="title" required>
+                                <label for="title" style="color:black;">Título</label>
+                                <input type="text" class="form-control" id="title" name="title" required
+                                    value="{{ old('title') }}">
                             </fieldset>
                         </div>
                         <div class="col-12">
                             <fieldset class="correo form-group">
-                                <label for="correo" style="color:black;">Descripción</label>
+                                <label for="description" style="color:black;">Descripción</label>
                                 <input type="text" class="correo form-control" id="description" name="description"
-                                    required>
+                                    required value="{{ old('description') }}">
                             </fieldset>
                         </div>
                         <div class="col-12">
                             <fieldset class="correo form-group">
-                                <label for="correo" style="color:black;">Plazo</label>
-                                <input type="text" class="correo form-control" id="due_date" name="due_date" required>
+                                <label for="due_date" style="color:black;">Plazo</label>
+                                <input type="text" class="correo form-control" id="due_date" name="due_date" required
+                                    value="{{ old('due_date') }}">
                             </fieldset>
                         </div>
                         <div class="col-6">
@@ -69,8 +68,16 @@
                                 </select>
                             </fieldset>
                         </div>
+                        <div class="row mt-2">
+                            <div class="col-6 text-center">
+                                <button type="reset" class="btn-gradient-secondary btn-sm white"
+                                    data-dismiss="modal">Cerrar</button>
+                            </div>
+                            <div class="col-6 text-center">
+                                <button type="submit" class="btn-gradient-primary btn-sm white">Editar</button>
+                            </div>
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Editar</button>
                 </form>
             </div>
         </div>

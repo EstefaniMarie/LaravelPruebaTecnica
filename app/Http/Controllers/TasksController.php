@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Task;
+use App\Http\Resources\TaskResource;
 
 class TasksController extends Controller
 {
@@ -29,6 +30,12 @@ class TasksController extends Controller
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error']);
         }
+    }
+
+    public function show($id)
+    {
+        $tareas = Task::findOrFail($id);
+        return new TaskResource($tareas);
     }
 
     public function edit($id)
